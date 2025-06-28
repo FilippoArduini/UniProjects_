@@ -1,0 +1,21 @@
+Compiling and Running
+
+Install dependencies: Make sure you have OpenSSL installed via Homebrew:
+brew install openssl
+Compile the code:
+Use the compile command that includes the OpenSSL paths:
+
+gcc server.c -o server -I$(brew --prefix openssl)/include -L$(brew --prefix openssl)/lib -lcrypto
+gcc client.c -o client
+Run the server:
+Start the server before the client:
+
+./server
+Run the client:
+In another terminal, run the client passing the path to the file to process:
+
+./client test.txt
+Output:
+The client will display the SHA-256 fingerprint of the file:
+
+[CLIENT] SHA-256: <hash>
